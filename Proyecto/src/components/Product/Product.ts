@@ -49,7 +49,7 @@ class AppProduct extends HTMLElement {
 
         const button = this.shadowRoot?.querySelector('button');
 		button?.addEventListener('click', () => {
-			dispatch(addNewProduct({ title: this.title, price: this.price, image: this.image }));
+			dispatch(addNewProduct({ title: this.name, price: this.price, image: this.image }));
 		});
     }
 

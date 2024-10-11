@@ -21,21 +21,23 @@ class Dashboard extends HTMLElement {
 	}
 
     render(){
-            const section = this.ownerDocument.createElement('section');
-            section.classList.add('products-container');
-        
-            const productSection = this.ownerDocument.createElement('section');
-            productSection.classList.add('products');
-        
-            if (this.shadowRoot) {
+        if (this.shadowRoot) {
+            this.shadowRoot.innerHTML = '';
+
+                const section = this.ownerDocument.createElement('section');
+                section.classList.add('products-container');
+                
+                const productSection = this.ownerDocument.createElement('section');
+                productSection.classList.add('products');
+                
                 appState.products.forEach((element: Products) => {
                     const card = this.ownerDocument.createElement('app-product') as AppProduct;
                     card.setAttribute(Attribute.image, element.image);
                     card.setAttribute(Attribute.name, element.title);
                     card.setAttribute(Attribute.description, element.description);
                     card.setAttribute(Attribute.category, element.category);
-                    card.setAttribute(Attribute.price, element.price);
-                    card.setAttribute(Attribute.rating, element.rating);
+                    card.setAttribute(Attribute.price, String(element.price));
+                    card.setAttribute(Attribute.rating, String(element.rating));
                     productSection.appendChild(card); // Cambiar a appendChild directamente
                 });
         
@@ -47,16 +49,16 @@ class Dashboard extends HTMLElement {
                 const cartTitle = this.ownerDocument.createElement('h2');
                 cartTitle.textContent = 'Carrito';
                 cartSection.appendChild(cartTitle); // Solo añadir aquí
-                section.appendChild(cartSection);
         
                 appState.cart.forEach((cart: shoppingItem) => {
                     const item = this.ownerDocument.createElement('item-cart') as AppShoppingCart;
-                    item.setAttribute(AttributeCart.title, cart.title);
+                    item.setAttribute(AttributeCart.title, cart.name);
                     item.setAttribute(AttributeCart.image, cart.image);
-                    item.setAttribute(AttributeCart.price, cart.price);
+                    item.setAttribute(AttributeCart.price, String(cart.price));
                     cartSection.appendChild(item);
                 });
         
+                section.appendChild(cartSection);
                 this.shadowRoot.appendChild(section); // Añadir la sección completa al shadowRoot
         }
     }
