@@ -1,13 +1,13 @@
 export enum AttributeCart {
 	'image' = 'image',
-	'title' = 'title',
+	'name' = 'name',
 	'price' = 'price',
 }
 
 class AppShoppingCart extends HTMLElement {
     image?: string;
 	name?: string;
-	price?: string;
+	price?: number;
 
     constructor(){
         super()
@@ -20,7 +20,12 @@ class AppShoppingCart extends HTMLElement {
 
     attributeChangedCallback(propName: AttributeCart, oldValue: string, newValue: string) {
 		switch (propName) {
-			default:
+			
+                case AttributeCart.price:
+                this.price = newValue ? Number(newValue) : undefined;
+                break;
+
+                default:
 				this[propName] = newValue;
 				break;
 		}
@@ -35,7 +40,7 @@ class AppShoppingCart extends HTMLElement {
         if(this.shadowRoot)
             this.shadowRoot.innerHTML = `
                 <section>
-                    <h1>${this.title}</h1>
+                    <h1>${this.name}</h1>
                     <img src="${this.image}">
                     <span>${this.price}</span>
                 </section>

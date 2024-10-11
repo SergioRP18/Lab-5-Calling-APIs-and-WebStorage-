@@ -1,6 +1,7 @@
 import { getProducts } from "../services/getProducts";
 import AppProduct, { Attribute } from "../components/Product/Product";
 import AppShoppingCart, { AttributeCart } from "../components/ShoppingCartItem/ShoppingCartItem";
+import '../components/ShoppingCartItem/ShoppingCartItem'
 import { getProduct } from '../store/actions';
 import { shoppingItem } from "../types/shopping";
 import { Products } from "../types/products";
@@ -29,7 +30,7 @@ class Dashboard extends HTMLElement {
                 
                 const productSection = this.ownerDocument.createElement('section');
                 productSection.classList.add('products');
-                
+
                 appState.products.forEach((element: Products) => {
                     const card = this.ownerDocument.createElement('app-product') as AppProduct;
                     card.setAttribute(Attribute.image, element.image);
@@ -51,8 +52,8 @@ class Dashboard extends HTMLElement {
                 cartSection.appendChild(cartTitle); // Solo añadir aquí
         
                 appState.cart.forEach((cart: shoppingItem) => {
-                    const item = this.ownerDocument.createElement('item-cart') as AppShoppingCart;
-                    item.setAttribute(AttributeCart.title, cart.name);
+                    const item = this.ownerDocument.createElement('app-shopping-cart') as AppShoppingCart;
+                    item.setAttribute(AttributeCart.name, cart.title);
                     item.setAttribute(AttributeCart.image, cart.image);
                     item.setAttribute(AttributeCart.price, String(cart.price));
                     cartSection.appendChild(item);

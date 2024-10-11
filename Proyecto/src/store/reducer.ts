@@ -7,7 +7,7 @@ export const reducer = (currentAction: Actions, currentState: AppState): AppStat
 		case ProductActions.ADD:
 			return {
 				...currentState,
-				cart: [payload, ...currentState.cart],
+				cart: [...currentState.cart, payload],
 			};
 		case ProductActions.GET:
 			return {

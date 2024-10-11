@@ -1,5 +1,5 @@
 export interface shoppingItem {
 	image: string;
-	name: string;
+	title: string;
 	price: string;
 }
