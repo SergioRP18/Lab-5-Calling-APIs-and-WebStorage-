@@ -1,0 +1,79 @@
+/* Estilo para las imágenes */
+img {
+    height: 200px; /* Reducir la altura */
+    width: 160px; /* Reducir el ancho */
+    border-radius: 10px; /* Menos redondeado */
+    object-fit: cover; /* Mantener la proporción de la imagen */
+}
+
+/* Título del producto */
+h1 {
+    width: 100%; /* Ajustar al 100% */
+    margin: 10px 0; /* Reducir margen */
+    font-size: 18px; /* Ajustar tamaño de fuente */
+    color: rgb(12, 72, 150);
+    text-align: center; /* Centrar el texto */
+}
+
+/* Contenedor principal */
+.container {
+    border-radius: 20px; /* Menos redondeado */
+    background-color: rgb(224, 224, 224);
+    display: grid; /* Cambiar a grid */
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    gap: 15px; /* Espacio entre tarjetas */
+    padding: 15px; /* Ajustar espaciado interno */
+    margin: 20px auto; /* Centrar el contenedor y ajustar margen */
+    max-width: 1200px; /* Ancho máximo para el contenedor */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Tarjeta de producto */
+.card {
+    display: flex;
+    flex-direction: column; /* Mantener contenido en columna */
+    align-items: center; /* Centrar contenido */
+    padding: 10px; /* Espaciado interno */
+    background-color: white; /* Fondo blanco para las tarjetas */
+    border-radius: 10px; /* Menos redondeado */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+}
+
+/* Información del producto */
+p {
+    width: 100%; /* Ajustar al 100% */
+    padding-left: 0; /* Sin espaciado a la izquierda */
+}
+
+/* Categoría del producto */
+h3 {
+    margin: 0;
+    color: rgb(12, 72, 150);
+    font-size: 12px; /* Ajustar tamaño de fuente */
+}
+
+/* Precio del producto */
+.price {
+    font-size: 20px; /* Ajustar tamaño del precio */
+    color: rgb(12, 72, 150);
+    margin: 5px 0; /* Margen superior e inferior */
+}
+
+/* Estilo del botón */
+button {
+    width: 130px; /* Reducir ancho del botón */
+    height: 35px; /* Reducir alto del botón */
+    border-radius: 5px;
+    background-color: rgb(12, 72, 150); /* Color de fondo */
+    color: white; /* Color del texto */
+    font-size: 14px; /* Ajustar tamaño de fuente */
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 10px; /* Margen superior */
+}
+
+button:hover {
+    background-color: rgb(10, 60, 130); /* Color en hover */
+    transform: scale(1.05); /* Efecto de aumento */
+}
