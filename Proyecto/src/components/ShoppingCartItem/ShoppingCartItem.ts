@@ -45,7 +45,6 @@ class AppShoppingCart extends HTMLElement {
                     <span>${this.price}</span>
                 </section>
         `;
-
     }
 }
 customElements.define('app-shopping-cart', AppShoppingCart);
